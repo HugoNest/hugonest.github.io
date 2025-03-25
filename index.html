@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HugoNest - Mobile Hugo CMS with AI and Git Integration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3A86FF',
+                        darkbg: '#121212',
+                        darkcard: '#1E1E1E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['"SF Pro Display"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-bg {
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #121212 100%);
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(58, 134, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .dark .code-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23262626' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .light .code-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e5e7eb' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .device-mockup {
+            position: relative;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 12px solid #1E1E1E;
+            background: #1E1E1E;
+        }
+
+        .device-mockup::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 6px;
+            background: #333;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .scroll-container {
+            scrollbar-width: none;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-darkbg text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Header/Nav -->
+    <header
+        class="sticky top-0 z-50 bg-white/80 dark:bg-darkbg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
+                    <i class="fas fa-code text-white"></i>
+                </div>
+                <span class="font-bold text-xl">HugoNest</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#features" class="hover:text-primary transition">Features</a>
+                <a href="#workflow" class="hover:text-primary transition">Workflow</a>
+                <a href="#security" class="hover:text-primary transition">Security</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                <button class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="#download"
+                    class="hidden md:block bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">Download</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg relative overflow-hidden text-white pt-20 pb-32">
+        <div id="particles-js" class="absolute inset-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 font-display leading-tight">
+                        Hugo Mobile: AI+Git Powered Static Sites
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-300 max-w-lg">
+                        Create, edit and deploy your Hugo content from anywhere with our mobile-first CMS featuring AI
+                        assistance and seamless Git integration.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#download"
+                            class="bg-primary hover:bg-blue-600 text-white px-8 py-4 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105 text-center">
+                            Get Started Free
+                        </a>
+                        <a href="#demo"
+                            class="border border-gray-400 hover:border-white text-white px-8 py-4 rounded-md text-lg font-medium transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fas fa-play"></i>
+                            <span>Watch Demo</span>
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center space-x-4 text-sm text-gray-400">
+                        <div class="flex items-center space-x-1">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span>4.9/5 (200+ reviews)</span>
+                        </div>
+                        <div class="h-4 w-px bg-gray-600"></div>
+                        <div>Trusted by 5,000+ developers</div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <img src="/static/media/dashboard.png" alt="HugoNest App Screenshot" class="w-full h-auto">
+                        <div
+                            class="absolute -bottom-8 -left-8 w-32 h-32 rounded-full bg-primary opacity-20 filter blur-xl">
+                        </div>
+                        <div
+                            class="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-purple-500 opacity-20 filter blur-xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Cloud -->
+    <section class="py-12 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-gray-500 dark:text-gray-400 mb-8">TRUSTED BY TECH TEAMS AT</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
+                <i class="fab fa-github text-4xl"></i>
+                <i class="fab fa-gitlab text-4xl text-orange-500"></i>
+                <i class="fab fa-bitbucket text-4xl text-blue-500"></i>
+                <i class="fab fa-microsoft text-4xl text-blue-600"></i>
+                <i class="fab fa-google text-4xl text-red-500"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Powerful Features for Hugo Workflows</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Everything you need to manage your static sites on the go
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div
+                    class="feature-card bg-white dark:bg-darkcard p-8 rounded-xl shadow-md transition duration-300 border border-gray-200 dark:border-gray-800">
+                    <div
+                        class="w-14 h-14 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Mobile-First Editor</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Full-featured Markdown editor with syntax highlighting, live preview, and offline support
+                        optimized for touch devices.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                            <span>Real-time content preview</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                            <span>Image and asset management</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                            <span>Dark mode support</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2 -->
+                <div
+                    class="feature-card bg-white dark:bg-darkcard p-8 rounded-xl shadow-md transition duration-300 border border-gray-200 dark:border-gray-800">
+                    <div
+                        class="w-14 h-14 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-6">
+                        <i class="fab fa-git-alt text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Git Native Integration</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Connect directly to your GitHub, GitLab or Bitbucket repositories with full version control
+                        capabilities.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                            <span>One-click sync and deploy</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                            <span>Conflict resolution tools</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                            <span>Branch management</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3 -->
+                <div
+                    class="feature-card bg-white dark:bg-darkcard p-8 rounded-xl shadow-md transition duration-300 border border-gray-200 dark:border-gray-800">
+                    <div
+                        class="w-14 h-14 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI Content Assistant</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Enhance your writing with AI-powered suggestions, SEO optimization, and multilingual
+                        translation.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                            <span>Generate draft content</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                            <span>Style and grammar improvements</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                            <span>Translate to 20+ languages</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section id="workflow" class="py-20 bg-gray-100 dark:bg-gray-900 code-bg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Streamlined Hugo Workflow</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    How HugoNest transforms your content creation process
+                </p>
+            </div>
+
+            <div class="bg-white dark:bg-darkcard rounded-xl shadow-xl overflow-hidden">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200 dark:divide-gray-800">
+                    <!-- Step 1 -->
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-4">
+                                1</div>
+                            <h3 class="text-xl font-bold">Create Content</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Write in our mobile-optimized editor with Markdown support, live preview, and AI assistance.
+                        </p>
+                        <div class="mt-6">
+                            <img src="/static/media/createcontent.png" alt="HugoNest App " class="w-full h-auto">
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-4">
+                                2</div>
+                            <h3 class="text-xl font-bold">Manage Assets</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Upload images, organize files, and manage your entire content directory from your phone.
+                        </p>
+                        <div class="mt-6">
+                            <img src="/static/media/manageassets.png" alt="HugoNest App Manage Assets"
+                                class="w-full h-auto">
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold mr-4">
+                                3</div>
+                            <h3 class="text-xl font-bold">Sync & Deploy</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Commit changes and push to your Git repository with one tap. Your site builds automatically.
+                        </p>
+                        <div class="mt-6">
+                            <img src="/static/media/sync.png" alt="HugoNest App Sync & Deploy" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Features -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">AI-Powered Content Creation</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
+                        Our integrated AI tools help you write better content faster, right from your mobile device.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-900/20 rounded-lg p-3 mr-4">
+                                <i class="fas fa-magic text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Smart Draft Generation</h4>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Generate complete article drafts from just a title or outline. Perfect for
+                                    overcoming writer's block.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-green-100 dark:bg-green-900/20 rounded-lg p-3 mr-4">
+                                <i class="fas fa-search text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">SEO Optimization</h4>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Get real-time suggestions to improve your content's search engine visibility.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-100 dark:bg-purple-900/20 rounded-lg p-3 mr-4">
+                                <i class="fas fa-language text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Multilingual Translation</h4>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Instantly translate your posts to reach a global audience, with support for 20+
+                                    languages.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="device-mockup w-full overflow-hidden">
+                            <div class="bg-gray-800 p-4 h-full">
+                                <div class="bg-gray-700 rounded-lg p-4 mb-4">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-bold">AI Writing Assistant</span>
+                                        <span class="text-xs bg-blue-600 px-2 py-1 rounded">PRO</span>
+                                    </div>
+                                    <p class="text-sm mb-3">"Write an introduction about Hugo static sites for a
+                                        technical audience"</p>
+                                    <div class="bg-gray-800 rounded p-3 text-sm">
+                                        <p>Hugo is a blazing-fast static site generator built with developers in mind...
+                                        </p>
+                                    </div>
+                                    <div class="flex space-x-2 mt-3">
+                                        <button class="text-xs bg-gray-600 px-2 py-1 rounded">Insert</button>
+                                        <button class="text-xs bg-gray-600 px-2 py-1 rounded">Regenerate</button>
+                                        <button class="text-xs bg-gray-600 px-2 py-1 rounded">Expand</button>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-bold">SEO Suggestions</span>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="flex items-start">
+                                            <div class="text-yellow-400 mr-2 mt-0.5">✓</div>
+                                            <div>
+                                                <p class="text-sm font-medium">Keyword density good (2.1%)</p>
+                                                <p class="text-xs text-gray-400">Target: 1.5-2.5%</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="text-red-400 mr-2 mt-0.5">!</div>
+                                            <div>
+                                                <p class="text-sm font-medium">Add more headings</p>
+                                                <p class="text-xs text-gray-400">Only 2 heading tags found</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="text-green-400 mr-2 mt-0.5">✓</div>
+                                            <div>
+                                                <p class="text-sm font-medium">Readability score: 72</p>
+                                                <p class="text-xs text-gray-400">Excellent for technical content</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="py-20 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Your Data, Your Control</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
+                        HugoNest is built on the principle of data sovereignty. We never store your content on our
+                        servers.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-900/20 rounded-lg p-3 mr-4">
+                                <i class="fas fa-lock text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">End-to-End Encryption</h4>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    All communication between your device and Git providers is encrypted with
+                                    industry-standard protocols.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-green-100 dark:bg-green-900/20 rounded-lg p-3 mr-4">
+                                <i class="fas fa-server text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">No Third-Party Storage</h4>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Your content goes directly from your device to your Git repository. We're just the
+                                    conduit.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-100 dark:bg-purple-900/20 rounded-lg p-3 mr-4">
+                                <i class="fas fa-user-shield text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">OAuth Authentication</h4>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Securely connect to your Git providers without sharing credentials. Revoke access
+                                    anytime.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2">
+                    <div class="bg-white dark:bg-darkcard rounded-xl shadow-lg p-8">
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold mb-2">Data Flow Architecture</h3>
+                            <p class="text-gray-600 dark:text-gray-400">How your content moves securely</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mr-4">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="flex-1 border-b-2 border-dashed border-gray-300 dark:border-gray-700 pb-6">
+                                    <h4 class="font-bold">Your Device</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Content created and encrypted
+                                        locally</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center mr-4">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <div class="flex-1 border-b-2 border-dashed border-gray-300 dark:border-gray-700 pb-6">
+                                    <h4 class="font-bold">Secure Transport</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">TLS 1.3 encrypted connection</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center mr-4">
+                                    <i class="fab fa-git-alt"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold">Your Git Repository</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Content stored in your own
+                                        infrastructure</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Loved by Developers</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    What our users say about HugoNest
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div
+                    class="bg-white dark:bg-darkcard p-8 rounded-xl shadow-md border border-gray-200 dark:border-gray-800">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J."
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Technical Writer</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-2">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        "As someone who writes documentation, being able to update our Hugo site from my phone during
+                        commutes has been a game-changer. The Markdown editor is superb."
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div
+                    class="bg-white dark:bg-darkcard p-8 rounded-xl shadow-md border border-gray-200 dark:border-gray-800">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T."
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael T.</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">DevOps Engineer</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-2">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        "The Git integration is flawless. I can review and merge content updates from my team right from
+                        my phone when I'm on call."
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div
+                    class="bg-white dark:bg-darkcard p-8 rounded-xl shadow-md border border-gray-200 dark:border-gray-800">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya K."
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Priya K.</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Blogger</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-2">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        "The AI translation feature has helped me reach readers in 5 new languages. My international
+                        traffic has grown 300% in three months!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="download" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Hugo Workflow?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                Join thousands of developers and content creators who manage their static sites on the go.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#"
+                    class="bg-white text-primary px-8 py-4 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105 inline-flex items-center justify-center">
+                    <i class="fab fa-apple mr-2 text-xl"></i>
+                    <span>Download for iOS</span>
+                </a>
+                <a href="#"
+                    class="bg-gray-900 text-white px-8 py-4 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105 inline-flex items-center justify-center">
+                    <i class="fab fa-google-play mr-2 text-xl"></i>
+                    <span>Download for Android</span>
+                </a>
+            </div>
+
+            <div
+                class="mt-8 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm opacity-80">
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>No credit card required</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>Free 14-day trial</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-question-circle mr-2"></i>
+                    <span>24/7 support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
+                            <i class="fas fa-code text-white"></i>
+                        </div>
+                        <span class="font-bold text-lg">HugoNest</span>
+                    </div>
+                    <p class="mb-4">
+                        The ultimate mobile companion for Hugo static site generators.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-primary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-primary transition"><i class="fab fa-github"></i></a>
+                        <a href="#" class="hover:text-primary transition"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Features</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Roadmap</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Changelog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Documentation</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Tutorials</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition">API</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">About</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Privacy</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2023 HugoNest. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-sm hover:text-primary transition">Privacy Policy</a>
+                    <span class="mx-2">•</span>
+                    <a href="#" class="text-sm hover:text-primary transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Simple particles effect for hero section
+        function createParticles() {
+            const container = document.querySelector('.hero-bg');
+            const particleCount = Math.floor(window.innerWidth / 10);
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Random size
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+
+                // Random animation
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Initialize particles on load
+        window.addEventListener('load', createParticles);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
