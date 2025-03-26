@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - HugoNest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3A86FF',
+                        darkbg: '#121212',
+                        darkcard: '#1E1E1E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['"SF Pro Display"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-darkbg text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Header/Nav -->
+    <header
+        class="sticky top-0 z-50 bg-white/80 dark:bg-darkbg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-md flex items-center justify-center">
+                        <img src="/static/media/logo.png" alt="Logo" class="w-full h-full object-cover rounded-md">
+                    </div>
+                    <span class="font-bold text-xl">HugoNest</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#features" class="hover:text-primary transition">Features</a>
+                <a href="index.html#workflow" class="hover:text-primary transition">Workflow</a>
+                <a href="index.html#security" class="hover:text-primary transition">Security</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                <button class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.html#download"
+                    class="hidden md:block bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">Download</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Privacy Policy Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-12 text-center">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">Privacy Policy</h1>
+                    <p class="text-gray-600 dark:text-gray-400">Last updated: May 15, 2023</p>
+                </div>
+
+                <div class="prose prose-lg dark:prose-invert max-w-none">
+                    <p class="lead mb-6">
+                        At HugoNest, we take your privacy seriously. This Privacy Policy explains how we collect, use,
+                        disclose, and safeguard your information when you use our mobile application and related
+                        services.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4">Information We Collect</h2>
+
+                    <h3 class="text-xl font-bold mt-6 mb-3">Personal Data</h3>
+                    <p>We may collect personally identifiable information, such as:</p>
+                    <ul class="list-disc ml-6 mb-6 space-y-2">
+                        <li>Email address (when you create an account or contact us)</li>
+                        <li>Name (optional, for personalization)</li>
+                        <li>OAuth tokens (for connecting to Git providers)</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold mt-6 mb-3">Usage Data</h3>
+                    <p>We may collect anonymous usage information, such as:</p>
+                    <ul class="list-disc ml-6 mb-6 space-y-2">
+                        <li>Device information (device type, operating system)</li>
+                        <li>App interactions (features used, time spent)</li>
+                        <li>Error logs and performance data</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4">How We Use Your Information</h2>
+                    <p>We use the collected data for various purposes:</p>
+                    <ul class="list-disc ml-6 mb-6 space-y-2">
+                        <li>To provide and maintain our service</li>
+                        <li>To notify you about changes to our service</li>
+                        <li>To allow you to participate in interactive features</li>
+                        <li>To provide customer support</li>
+                        <li>To gather analysis to improve our service</li>
+                        <li>To monitor the usage of our service</li>
+                        <li>To detect, prevent and address technical issues</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4">Your Content</h2>
+                    <p>
+                        HugoNest is designed with a "zero-knowledge" approach to your content. We do not store your Hugo
+                        website content on our servers. All content remains on your device and is transmitted directly
+                        to your Git repository through secure connections.
+                    </p>
+                    <p class="mt-4">
+                        When you use our AI features, text is temporarily processed by our AI service providers to
+                        generate suggestions or translations, but is not permanently stored.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4">Data Sharing and Third Parties</h2>
+                    <p>We may share your information with third parties in the following situations:</p>
+                    <ul class="list-disc ml-6 mb-6 space-y-2">
+                        <li><strong>Service Providers:</strong> We may employ third-party companies to facilitate our
+                            Service, provide the Service on our behalf, perform Service-related services, or assist us
+                            in analyzing how our Service is used. These third parties have access to your Personal Data
+                            only to perform these tasks on our behalf.</li>
+                        <li><strong>Git Providers:</strong> When you connect to GitHub, GitLab, or Bitbucket, we
+                            facilitate the connection using OAuth protocols.</li>
+                        <li><strong>Analytics:</strong> We may use third-party Service Providers to monitor and analyze
+                            the use of our Service.</li>
+                        <li><strong>AI Processing:</strong> When you use our AI-powered features, your content is
+                            processed by our AI partners.</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4">Security</h2>
+                    <p>
+                        We value your trust in providing us your personal information, thus we strive to use
+                        commercially acceptable means of protecting it. But remember that no method of transmission over
+                        the internet, or method of electronic storage is 100% secure and reliable, and we cannot
+                        guarantee its absolute security.
+                    </p>
+                    <p class="mt-4">
+                        We implement the following security measures:
+                    </p>
+                    <ul class="list-disc ml-6 mb-6 space-y-2">
+                        <li>End-to-end encryption for all data transmission</li>
+                        <li>OAuth for secure authentication without storing credentials</li>
+                        <li>Regular security audits and tests</li>
+                        <li>Encrypted local storage of sensitive information</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4">Your Rights</h2>
+                    <p>
+                        Depending on your location, you may have certain rights regarding your personal information:
+                    </p>
+                    <ul class="list-disc ml-6 mb-6 space-y-2">
+                        <li>The right to access information we hold about you</li>
+                        <li>The right to request correction of inaccurate information</li>
+                        <li>The right to request deletion of your data</li>
+                        <li>The right to withdraw consent</li>
+                        <li>The right to data portability</li>
+                        <li>The right to object to processing</li>
+                    </ul>
+                    <p>
+                        To exercise any of these rights, please contact us at <a href="mailto:privacy@xgdebug.com"
+                            class="text-primary hover:underline">privacy@xgdebug.com</a>.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4">Children's Privacy</h2>
+                    <p>
+                        Our Service does not address anyone under the age of 13. We do not knowingly collect personally
+                        identifiable information from children under 13. If you are a parent or guardian and you are
+                        aware that your child has provided us with personal data, please contact us so that we can take
+                        necessary actions.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4">Changes to This Privacy Policy</h2>
+                    <p>
+                        We may update our Privacy Policy from time to time. We will notify you of any changes by posting
+                        the new Privacy Policy on this page and updating the "Last updated" date at the top of this
+                        page.
+                    </p>
+                    <p class="mt-4">
+                        You are advised to review this Privacy Policy periodically for any changes. Changes to this
+                        Privacy Policy are effective when they are posted on this page.
+                    </p>
+
+                    <h2 class="text-2xl font-bold mt-10 mb-4">Contact Us</h2>
+                    <p>
+                        If you have any questions about this Privacy Policy, please contact us:
+                    </p>
+                    <ul class="list-none mb-6 space-y-2 mt-4">
+                        <li>By email: <a href="mailto:hugonest@xgdebug.com"
+                                class="text-primary hover:underline">hugonest@xgdebug.com</a></li>
+                        <li>By visiting the contact page on our website</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
+                            <i class="fas fa-code text-white"></i>
+                        </div>
+                        <span class="font-bold text-lg">HugoNest</span>
+                    </div>
+                    <p class="mb-4">
+                        The ultimate mobile companion for Hugo static site generators.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="mailto:hugonest@xgdebug.com" class="hover:text-primary transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="#" class="hover:text-primary transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-primary transition"><i class="fab fa-github"></i></a>
+                        <a href="#" class="hover:text-primary transition"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#features" class="hover:text-primary transition">Features</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Roadmap</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Changelog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Documentation</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Tutorials</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition">API</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">About</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Careers</a></li>
+                        <li><a href="privacy.html" class="text-primary font-medium transition">Privacy</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2025 HugoNest. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="privacy.html" class="text-sm text-primary transition">Privacy Policy</a>
+                    <span class="mx-2">•</span>
+                    <a href="#" class="text-sm hover:text-primary transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
