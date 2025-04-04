@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - HugoNest</title>
+    <meta name="description"
+        content="Get help and support for HugoNest, the mobile app for managing Hugo static sites.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3A86FF',
+                        darkbg: '#121212',
+                        darkcard: '#1E1E1E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['"SF Pro Display"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-darkbg text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Header/Nav -->
+    <header
+        class="sticky top-0 z-50 bg-white/80 dark:bg-darkbg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-md flex items-center justify-center">
+                        <img src="/static/media/logo.png" alt="Logo" class="w-full h-full object-cover rounded-md">
+                    </div>
+                    <span class="font-bold text-xl">HugoNest</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#features" class="hover:text-primary transition">Features</a>
+                <a href="index.html#workflow" class="hover:text-primary transition">Workflow</a>
+                <a href="index.html#security" class="hover:text-primary transition">Security</a>
+                <a href="support.html" class="text-primary font-medium">Support</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                <button class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="index.html#download"
+                    class="hidden md:block bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">Download</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Support Hero -->
+    <section class="bg-primary text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 font-display">How Can We Help You?</h1>
+            <p class="text-xl max-w-3xl mx-auto opacity-90">
+                We're here to make your HugoNest experience as smooth as possible. Find answers to common questions or
+                reach out for personalized support.
+            </p>
+        </div>
+    </section>
+
+    <!-- Support Options -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact Support -->
+                <div
+                    class="bg-white dark:bg-darkcard p-8 rounded-xl shadow-md border border-gray-200 dark:border-gray-800">
+                    <div
+                        class="w-14 h-14 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6">
+                        <i class="fas fa-envelope text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Email Support</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Have a specific question? Our support team is ready to help you with any issues or questions.
+                    </p>
+                    <a href="mailto:hugonest@xgdebug.com"
+                        class="inline-flex items-center text-primary hover:underline font-medium">
+                        <span>hugonest@xgdebug.com</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                        Response time: Within 24 hours
+                    </p>
+                </div>
+
+                <!-- Social Media -->
+                <div
+                    class="bg-white dark:bg-darkcard p-8 rounded-xl shadow-md border border-gray-200 dark:border-gray-800">
+                    <div
+                        class="w-14 h-14 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Social Channels</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Connect with us on social media for quick responses and to join our community.
+                    </p>
+                    <div class="flex flex-col space-y-3">
+                        <a href="https://x.com/HugoNestApp" target="_blank"
+                            class="inline-flex items-center text-primary hover:underline font-medium">
+                            <i class="fab fa-twitter mr-2"></i>
+                            <span>X (Twitter)</span>
+                        </a>
+                        <a href="https://github.com/HugoNest" target="_blank"
+                            class="inline-flex items-center text-primary hover:underline font-medium">
+                            <i class="fab fa-github mr-2"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Documentation -->
+                <div
+                    class="bg-white dark:bg-darkcard p-8 rounded-xl shadow-md border border-gray-200 dark:border-gray-800">
+                    <div
+                        class="w-14 h-14 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-6">
+                        <i class="fas fa-book text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Documentation</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Explore our comprehensive guides and documentation to learn how to use HugoNest effectively.
+                    </p>
+                    <a href="https://hugonest.pages.dev/" target="_blank"
+                        class="inline-flex items-center text-primary hover:underline font-medium">
+                        <span>Browse Documentation</span>
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- FAQ Item 2 -->
+                <div
+                    class="bg-white dark:bg-darkcard p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-800">
+                    <h3 class="font-bold text-xl mb-2">How do I connect my Git repository?</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Go to the Git Settings page. Click the "eye" icon in the SSH Key section to display the key.
+                        Click the copy icon below to copy the key. Then, <a
+                            href="https://hugonest.pages.dev/posts/how_do_i_connect_my_git_repository/"
+                            class="text-primary hover:underline" target="_blank">Add the key to your GitHub
+                            repository</a>.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div
+                    class="bg-white dark:bg-darkcard p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-800">
+                    <h3 class="font-bold text-xl mb-2">How does the AI content assistant work?</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        The AI assistant uses advanced language models to help you generate content, improve your
+                        writing,
+                        and translate your posts. Your content is processed securely and is not stored permanently.
+                        For more information about data privacy, see our <a href="privacy.html"
+                            class="text-primary hover:underline">Privacy Policy</a>.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div
+                    class="bg-white dark:bg-darkcard p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-800">
+                    <h3 class="font-bold text-xl mb-2">Can I use HugoNest offline?</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Yes! HugoNest is designed to work offline. You can create and edit content without an internet
+                        connection.
+                        Changes will be synchronized with your Git repository when you're back online.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div
+                    class="bg-white dark:bg-darkcard p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-800">
+                    <h3 class="font-bold text-xl mb-2">How do I request a refund?</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        If you're not satisfied with your purchase, you can request a refund within 14 days.
+                        Please contact our support team at <a href="mailto:hugonest@xgdebug.com"
+                            class="text-primary hover:underline">hugonest@xgdebug.com</a>
+                        with your purchase details.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">Still Have Questions?</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 text-center max-w-2xl mx-auto">
+                    If you couldn't find the answer to your question, feel free to reach out to us directly.
+                </p>
+
+                <div
+                    class="bg-white dark:bg-darkcard p-8 rounded-xl shadow-md border border-gray-200 dark:border-gray-800">
+                    <form action="https://formsubmit.co/hugonest@xgdebug.com" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name"
+                                    class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name"
+                                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label for="email"
+                                    class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Your email"
+                                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject"
+                                class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject"
+                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <label for="message"
+                                class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message"
+                                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-medium transition duration-300 w-full md:w-auto">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
+                            <i class="fas fa-code text-white"></i>
+                        </div>
+                        <span class="font-bold text-lg">HugoNest</span>
+                    </div>
+                    <p class="mb-4">
+                        The ultimate mobile companion for Hugo static site generators.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="mailto:hugonest@xgdebug.com" class="hover:text-primary transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://x.com/HugoNestApp" class="hover:text-primary transition" target="_blank"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/HugoNest" class="hover:text-primary transition" target="_blank"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#features" class="hover:text-primary transition">Features</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Roadmap</a></li>
+                        <li><a href="changelog.html" class="hover:text-primary transition">Changelog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Documentation</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Tutorials</a></li>
+                        <li><a href="https://hugonest.pages.dev/" class="hover:text-primary transition"
+                                target="_blank">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">About</a></li>
+                        <li><a href="privacy.html" class="hover:text-primary transition">Privacy</a></li>
+
+                        <li><a href="support.html" class="text-primary font-medium transition">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2025 HugoNest. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="privacy.html" class="text-sm hover:text-primary transition">Privacy Policy</a>
+                    <span class="mx-2">•</span>
+                    <a href="#" class="text-sm hover:text-primary transition">Terms of Service</a>
+                    <span class="mx-2">•</span>
+                    <a href="support.html" class="text-sm text-primary transition">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
