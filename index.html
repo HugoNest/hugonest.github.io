@@ -126,11 +126,27 @@
                     <i class="fas fa-moon dark:hidden"></i>
                     <i class="fas fa-sun hidden dark:block"></i>
                 </button>
-                <button class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                <button id="mobile-menu-button"
+                    class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
                     <i class="fas fa-bars"></i>
                 </button>
                 <a href="#download"
                     class="hidden md:block bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">Download</a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden hidden bg-white dark:bg-darkbg border-t border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-6 py-4">
+                <nav class="flex flex-col space-y-4">
+                    <a href="#features" class="hover:text-primary transition py-2">Features</a>
+                    <a href="#workflow" class="hover:text-primary transition py-2">Workflow</a>
+                    <a href="#security" class="hover:text-primary transition py-2">Security</a>
+                    <a href="support.html" class="hover:text-primary transition py-2">Support</a>
+                    <a href="https://hugonest.pages.dev/" class="hover:text-primary transition py-2">Blog</a>
+                    <a href="#download"
+                        class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition inline-block w-full text-center">Download</a>
+                </nav>
             </div>
         </div>
     </header>
@@ -795,6 +811,21 @@
         themeToggle.addEventListener('click', () => {
             html.classList.toggle('dark');
             localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
 
         // Simple particles effect for hero section
