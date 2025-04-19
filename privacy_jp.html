@@ -1,290 +1,413 @@
 <!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>プライバシーポリシー - HugoNest</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3A86FF',
-                        darkbg: '#121212',
-                        darkcard: '#1E1E1E',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['"SF Pro Display"', 'sans-serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3A86FF",
+              darkbg: "#121212",
+              darkcard: "#1E1E1E",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ['"SF Pro Display"', "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-gray-50 dark:bg-darkbg text-gray-800 dark:text-gray-200 transition-colors duration-300">
+  <body
+    class="bg-gray-50 dark:bg-darkbg text-gray-800 dark:text-gray-200 transition-colors duration-300"
+  >
     <!-- ヘッダー/ナビゲーション -->
     <header
-        class="sticky top-0 z-50 bg-white/80 dark:bg-darkbg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <div class="w-8 h-8 rounded-md flex items-center justify-center">
-                        <img src="/static/media/logo.png" alt="ロゴ" class="w-full h-full object-cover rounded-md">
-                    </div>
-                    <span class="font-bold text-xl">HugoNest</span>
-                </a>
+      class="sticky top-0 z-50 bg-white/80 dark:bg-darkbg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <a href="index.html" class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-md flex items-center justify-center">
+              <img
+                src="/static/media/logo.png"
+                alt="ロゴ"
+                class="w-full h-full object-cover rounded-md"
+              />
             </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html#features" class="hover:text-primary transition">機能</a>
-                <a href="index.html#workflow" class="hover:text-primary transition">ワークフロー</a>
-                <a href="index.html#security" class="hover:text-primary transition">セキュリティ</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block"></i>
-                </button>
-                <button class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <a href="index.html#download"
-                    class="hidden md:block bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">ダウンロード</a>
-            </div>
+            <span class="font-bold text-xl">HugoNest</span>
+          </a>
         </div>
+        <nav class="hidden md:flex space-x-8">
+          <a href="index.html#features" class="hover:text-primary transition"
+            >機能</a
+          >
+          <a href="index.html#workflow" class="hover:text-primary transition"
+            >ワークフロー</a
+          >
+          <a href="index.html#security" class="hover:text-primary transition"
+            >セキュリティ</a
+          >
+        </nav>
+        <div class="flex items-center space-x-4">
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+          >
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:block"></i>
+          </button>
+          <button
+            class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <a
+            href="index.html#download"
+            class="hidden md:block bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+            >ダウンロード</a
+          >
+        </div>
+      </div>
     </header>
 
     <!-- プライバシーポリシー内容 -->
     <section class="py-16">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-12 text-center">
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4">プライバシーポリシー</h1>
-                    <p class="text-gray-600 dark:text-gray-400">最終更新日: 2023年5月15日</p>
-                </div>
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-12 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">
+              プライバシーポリシー
+            </h1>
+            <p class="text-gray-600 dark:text-gray-400">
+              最終更新日: 2023年5月15日
+            </p>
+          </div>
 
-                <div class="prose prose-lg dark:prose-invert max-w-none">
-                    <p class="lead mb-6">
-                        HugoNestでは、ユーザーのプライバシーを非常に重要視しています。本プライバシーポリシーでは、当社のモバイルアプリケーションおよび関連サービスを利用する際に、どのように情報を収集、使用、開示、保護するかについて説明します。
-                    </p>
+          <div class="prose prose-lg dark:prose-invert max-w-none">
+            <p class="lead mb-6">
+              HugoNestでは、ユーザーのプライバシーを非常に重要視しています。本プライバシーポリシーでは、当社のモバイルアプリケーションおよび関連サービスを利用する際に、どのように情報を収集、使用、開示、保護するかについて説明します。
+            </p>
 
-                    <h2 class="text-2xl font-bold mt-10 mb-4">収集する情報</h2>
+            <h2 class="text-2xl font-bold mt-10 mb-4">収集する情報</h2>
 
-                    <h3 class="text-xl font-bold mt-6 mb-3">個人データ</h3>
-                    <p>以下のような個人を特定できる情報を収集する場合があります:</p>
-                    <ul class="list-disc ml-6 mb-6 space-y-2">
-                        <li>メールアドレス（アカウント作成時またはお問い合わせ時）</li>
-                        <li>名前（オプション、個人設定用）</li>
-                        <li>OAuthトークン（Gitプロバイダー接続用）</li>
-                    </ul>
+            <h3 class="text-xl font-bold mt-6 mb-3">個人データ</h3>
+            <p>以下のような個人を特定できる情報を収集する場合があります:</p>
+            <ul class="list-disc ml-6 mb-6 space-y-2">
+              <li>メールアドレス（アカウント作成時またはお問い合わせ時）</li>
+              <li>名前（オプション、個人設定用）</li>
+              <li>OAuthトークン（Gitプロバイダー接続用）</li>
+            </ul>
 
-                    <h3 class="text-xl font-bold mt-6 mb-3">利用データ</h3>
-                    <p>以下のような匿名の利用情報を収集する場合があります:</p>
-                    <ul class="list-disc ml-6 mb-6 space-y-2">
-                        <li>デバイス情報（デバイスタイプ、オペレーティングシステム）</li>
-                        <li>アプリ操作（使用機能、利用時間）</li>
-                        <li>エラーログとパフォーマンスデータ</li>
-                    </ul>
+            <h3 class="text-xl font-bold mt-6 mb-3">利用データ</h3>
+            <p>以下のような匿名の利用情報を収集する場合があります:</p>
+            <ul class="list-disc ml-6 mb-6 space-y-2">
+              <li>デバイス情報（デバイスタイプ、オペレーティングシステム）</li>
+              <li>アプリ操作（使用機能、利用時間）</li>
+              <li>エラーログとパフォーマンスデータ</li>
+            </ul>
 
-                    <h2 class="text-2xl font-bold mt-10 mb-4">情報の利用目的</h2>
-                    <p>収集したデータは以下の目的で使用します:</p>
-                    <ul class="list-disc ml-6 mb-6 space-y-2">
-                        <li>サービスの提供と維持</li>
-                        <li>サービス変更の通知</li>
-                        <li>インタラクティブ機能への参加</li>
-                        <li>カスタマーサポートの提供</li>
-                        <li>サービス改善のための分析</li>
-                        <li>サービスの利用状況の監視</li>
-                        <li>技術的問題の検出、防止、対応</li>
-                    </ul>
+            <h2 class="text-2xl font-bold mt-10 mb-4">情報の利用目的</h2>
+            <p>収集したデータは以下の目的で使用します:</p>
+            <ul class="list-disc ml-6 mb-6 space-y-2">
+              <li>サービスの提供と維持</li>
+              <li>サービス変更の通知</li>
+              <li>インタラクティブ機能への参加</li>
+              <li>カスタマーサポートの提供</li>
+              <li>サービス改善のための分析</li>
+              <li>サービスの利用状況の監視</li>
+              <li>技術的問題の検出、防止、対応</li>
+            </ul>
 
-                    <h2 class="text-2xl font-bold mt-10 mb-4">ユーザーコンテンツ</h2>
-                    <p>
-                        HugoNestは、ユーザーコンテンツに対して「ゼロ知識」アプローチを採用しています。Hugoウェブサイトのコンテンツを当社サーバーに保存することはありません。すべてのコンテンツはユーザーのデバイスに残り、セキュアな接続を通じて直接Gitリポジトリに送信されます。
-                    </p>
-                    <p class="mt-4">
-                        AI機能を使用する場合、テキストは提案や翻訳を生成するために一時的にAIサービスプロバイダーによって処理されますが、永続的に保存されることはありません。
-                    </p>
+            <h2 class="text-2xl font-bold mt-10 mb-4">ユーザーコンテンツ</h2>
+            <p>
+              HugoNestは、ユーザーコンテンツに対して「ゼロ知識」アプローチを採用しています。Hugoウェブサイトのコンテンツを当社サーバーに保存することはありません。すべてのコンテンツはユーザーのデバイスに残り、セキュアな接続を通じて直接Gitリポジトリに送信されます。
+            </p>
+            <p class="mt-4">
+              AI機能を使用する場合、テキストは提案や翻訳を生成するために一時的にAIサービスプロバイダーによって処理されますが、永続的に保存されることはありません。
+            </p>
 
-                    <h2 class="text-2xl font-bold mt-10 mb-4">データ共有と第三者</h2>
-                    <p>以下の状況で情報を第三者と共有する場合があります:</p>
-                    <ul class="list-disc ml-6 mb-6 space-y-2">
-                        <li><strong>サービスプロバイダー:</strong>
-                            サービスの促進、代行提供、サービス関連業務の遂行、またはサービスの利用状況分析の支援のために、第三者企業を利用する場合があります。これらの第三者は、これらの業務を当社に代わって行うためにのみ個人データにアクセスできます。
-                        </li>
-                        <li><strong>Gitプロバイダー:</strong> GitHub、GitLab、Bitbucketに接続する場合、OAuthプロトコルを使用して接続を容易にします。</li>
-                        <li><strong>分析:</strong> サービスの利用状況を監視および分析するために、第三者サービスプロバイダーを使用する場合があります。</li>
-                        <li><strong>AI処理:</strong> AI機能を使用する場合、コンテンツはAIパートナーによって処理されます。</li>
-                    </ul>
+            <h2 class="text-2xl font-bold mt-10 mb-4">データ共有と第三者</h2>
+            <p>以下の状況で情報を第三者と共有する場合があります:</p>
+            <ul class="list-disc ml-6 mb-6 space-y-2">
+              <li>
+                <strong>サービスプロバイダー:</strong>
+                サービスの促進、代行提供、サービス関連業務の遂行、またはサービスの利用状況分析の支援のために、第三者企業を利用する場合があります。これらの第三者は、これらの業務を当社に代わって行うためにのみ個人データにアクセスできます。
+              </li>
+              <li>
+                <strong>Gitプロバイダー:</strong>
+                GitHub、GitLab、Bitbucketに接続する場合、OAuthプロトコルを使用して接続を容易にします。
+              </li>
+              <li>
+                <strong>分析:</strong>
+                サービスの利用状況を監視および分析するために、第三者サービスプロバイダーを使用する場合があります。
+              </li>
+              <li>
+                <strong>AI処理:</strong>
+                AI機能を使用する場合、コンテンツはAIパートナーによって処理されます。
+              </li>
+            </ul>
 
-                    <h2 class="text-2xl font-bold mt-10 mb-4">セキュリティ</h2>
-                    <p>
-                        当社は、ユーザーが個人情報を提供することへの信頼を大切にし、商業的に許容される手段を使用して保護に努めます。ただし、インターネットを介した送信方法や電子保存方法は100％安全で信頼できるものではないことを覚えておいてください。絶対的なセキュリティを保証することはできません。
-                    </p>
-                    <p class="mt-4">
-                        当社は以下のセキュリティ対策を実施しています:
-                    </p>
-                    <ul class="list-disc ml-6 mb-6 space-y-2">
-                        <li>すべてのデータ送信に対するエンドツーエンド暗号化</li>
-                        <li>認証情報を保存せずに安全な認証を行うOAuth</li>
-                        <li>定期的なセキュリティ監査とテスト</li>
-                        <li>機密情報の暗号化されたローカルストレージ</li>
-                    </ul>
+            <h2 class="text-2xl font-bold mt-10 mb-4">セキュリティ</h2>
+            <p>
+              当社は、ユーザーが個人情報を提供することへの信頼を大切にし、商業的に許容される手段を使用して保護に努めます。ただし、インターネットを介した送信方法や電子保存方法は100％安全で信頼できるものではないことを覚えておいてください。絶対的なセキュリティを保証することはできません。
+            </p>
+            <p class="mt-4">当社は以下のセキュリティ対策を実施しています:</p>
+            <ul class="list-disc ml-6 mb-6 space-y-2">
+              <li>すべてのデータ送信に対するエンドツーエンド暗号化</li>
+              <li>認証情報を保存せずに安全な認証を行うOAuth</li>
+              <li>定期的なセキュリティ監査とテスト</li>
+              <li>機密情報の暗号化されたローカルストレージ</li>
+            </ul>
 
-                    <h2 class="text-2xl font-bold mt-10 mb-4">ユーザーの権利</h2>
-                    <p>
-                        お住まいの地域によっては、個人情報に関する一定の権利がある場合があります:
-                    </p>
-                    <ul class="list-disc ml-6 mb-6 space-y-2">
-                        <li>当社が保持する情報へのアクセス権</li>
-                        <li>不正確な情報の修正を要求する権利</li>
-                        <li>データ削除を要求する権利</li>
-                        <li>同意を撤回する権利</li>
-                        <li>データポータビリティの権利</li>
-                        <li>処理に異議を唱える権利</li>
-                    </ul>
-                    <p>
-                        これらの権利を行使する場合は、<a href="mailto:privacy@xgdebug.com"
-                            class="text-primary hover:underline">privacy@xgdebug.com</a>までご連絡ください。
-                    </p>
+            <h2 class="text-2xl font-bold mt-10 mb-4">ユーザーの権利</h2>
+            <p>
+              お住まいの地域によっては、個人情報に関する一定の権利がある場合があります:
+            </p>
+            <ul class="list-disc ml-6 mb-6 space-y-2">
+              <li>当社が保持する情報へのアクセス権</li>
+              <li>不正確な情報の修正を要求する権利</li>
+              <li>データ削除を要求する権利</li>
+              <li>同意を撤回する権利</li>
+              <li>データポータビリティの権利</li>
+              <li>処理に異議を唱える権利</li>
+            </ul>
+            <p>
+              これらの権利を行使する場合は、<a
+                href="mailto:privacy@xgdebug.com"
+                class="text-primary hover:underline"
+                >privacy@xgdebug.com</a
+              >までご連絡ください。
+            </p>
 
-                    <h2 class="text-2xl font-bold mt-10 mb-4">児童のプライバシー</h2>
-                    <p>
-                        当社のサービスは13歳未満の方を対象としていません。13歳未満の児童から個人を特定できる情報を故意に収集することはありません。保護者または後見人であり、お子様が当社に個人データを提供したことに気付かれた場合は、必要な措置を講じることができるようご連絡ください。
-                    </p>
+            <h2 class="text-2xl font-bold mt-10 mb-4">児童のプライバシー</h2>
+            <p>
+              当社のサービスは13歳未満の方を対象としていません。13歳未満の児童から個人を特定できる情報を故意に収集することはありません。保護者または後見人であり、お子様が当社に個人データを提供したことに気付かれた場合は、必要な措置を講じることができるようご連絡ください。
+            </p>
 
-                    <h2 class="text-2xl font-bold mt-10 mb-4">プライバシーポリシーの変更</h2>
-                    <p>
-                        当社はプライバシーポリシーを随時更新する場合があります。変更がある場合は、新しいプライバシーポリシーをこのページに掲載し、ページ上部の「最終更新日」を更新することで通知します。
-                    </p>
-                    <p class="mt-4">
-                        変更の有無を確認するため、定期的に本プライバシーポリシーを確認することをお勧めします。本プライバシーポリシーの変更は、このページに掲載された時点で有効になります。
-                    </p>
+            <h2 class="text-2xl font-bold mt-10 mb-4">
+              プライバシーポリシーの変更
+            </h2>
+            <p>
+              当社はプライバシーポリシーを随時更新する場合があります。変更がある場合は、新しいプライバシーポリシーをこのページに掲載し、ページ上部の「最終更新日」を更新することで通知します。
+            </p>
+            <p class="mt-4">
+              変更の有無を確認するため、定期的に本プライバシーポリシーを確認することをお勧めします。本プライバシーポリシーの変更は、このページに掲載された時点で有効になります。
+            </p>
 
-                    <h2 class="text-2xl font-bold mt-10 mb-4">お問い合わせ</h2>
-                    <p>
-                        本プライバシーポリシーに関するご質問がある場合は、以下までご連絡ください:
-                    </p>
-                    <ul class="list-none mb-6 space-y-2 mt-4">
-                        <li>メール: <a href="mailto:hugonest@xgdebug.com"
-                                class="text-primary hover:underline">hugonest@xgdebug.com</a></li>
-                        <li>当社ウェブサイトの問い合わせページから</li>
-                    </ul>
-                </div>
-            </div>
+            <h2 class="text-2xl font-bold mt-10 mb-4">お問い合わせ</h2>
+            <p>
+              本プライバシーポリシーに関するご質問がある場合は、以下までご連絡ください:
+            </p>
+            <ul class="list-none mb-6 space-y-2 mt-4">
+              <li>
+                メール:
+                <a
+                  href="mailto:hugonest@xgdebug.com"
+                  class="text-primary hover:underline"
+                  >hugonest@xgdebug.com</a
+                >
+              </li>
+              <li>当社ウェブサイトの問い合わせページから</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- フッター -->
-    <footer class="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
-                            <i class="fas fa-code text-white"></i>
-                        </div>
-                        <span class="font-bold text-lg">HugoNest</span>
-                    </div>
-                    <p class="mb-4">
-                        Hugo静的サイトジェネレーターのための究極のモバイルコンパニオン。
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="mailto:hugonest@xgdebug.com" class="hover:text-primary transition">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="#" class="hover:text-primary transition"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-primary transition"><i class="fab fa-github"></i></a>
-                        <a href="#" class="hover:text-primary transition"><i class="fab fa-discord"></i></a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">製品</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html#features" class="hover:text-primary transition">機能</a></li>
-                        <li><a href="#" class="hover:text-primary transition">ロードマップ</a></li>
-                        <li><a href="#" class="hover:text-primary transition">変更履歴</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">リソース</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-primary transition">ドキュメント</a></li>
-                        <li><a href="#" class="hover:text-primary transition">チュートリアル</a></li>
-                        <li><a href="#" class="hover:text-primary transition">ブログ</a></li>
-                        <li><a href="#" class="hover:text-primary transition">API</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">会社</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-primary transition">会社概要</a></li>
-                        <li><a href="#" class="hover:text-primary transition">採用情報</a></li>
-                        <li><a href="privacy.html" class="text-primary font-medium transition">プライバシー</a></li>
-                    </ul>
-                </div>
+    <footer
+      class="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 py-12"
+    >
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <div
+                class="w-8 h-8 rounded-md bg-primary flex items-center justify-center"
+              >
+                <i class="fas fa-code text-white"></i>
+              </div>
+              <span class="font-bold text-lg">HugoNest</span>
             </div>
-
-            <div
-                class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p>© 2025 HugoNest. All rights reserved.</p>
-                <div class="mt-4 md:mt-0">
-                    <a href="privacy.html" class="text-sm text-primary transition">プライバシーポリシー</a>
-                    <span class="mx-2">•</span>
-                    <a href="#" class="text-sm hover:text-primary transition">利用規約</a>
-                </div>
+            <p class="mb-4">
+              Hugo静的サイトジェネレーターのための究極のモバイルコンパニオン。
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="mailto:hugonest@xgdebug.com"
+                class="hover:text-primary transition"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+              <a href="#" class="hover:text-primary transition"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="hover:text-primary transition"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a href="#" class="hover:text-primary transition"
+                ><i class="fab fa-discord"></i
+              ></a>
             </div>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">
+              製品
+            </h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html#features"
+                  class="hover:text-primary transition"
+                  >機能</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition"
+                  >ロードマップ</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition">変更履歴</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">
+              リソース
+            </h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-primary transition"
+                  >ドキュメント</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition"
+                  >チュートリアル</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition">ブログ</a>
+              </li>
+              <li><a href="#" class="hover:text-primary transition">API</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">
+              会社
+            </h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-primary transition">会社概要</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition">採用情報</a>
+              </li>
+              <li>
+                <a
+                  href="privacy.html"
+                  class="text-primary font-medium transition"
+                  >プライバシー</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div
+          class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p>© 2025 HugoNest. All rights reserved.</p>
+          <div class="mt-4 md:mt-0">
+            <a href="privacy.html" class="text-sm text-primary transition"
+              >プライバシーポリシー</a
+            >
+            <span class="mx-2">•</span>
+            <a href="#" class="text-sm hover:text-primary transition"
+              >利用規約</a
+            >
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script>
-        // テーマ切り替え
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
+      // テーマ切り替え
+      const themeToggle = document.getElementById("theme-toggle");
+      const html = document.documentElement;
 
-        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
-        } else {
-            html.classList.remove('dark');
-        }
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        html.classList.add("dark");
+      } else {
+        html.classList.remove("dark");
+      }
 
-        themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-        });
+      themeToggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          html.classList.contains("dark") ? "dark" : "light"
+        );
+      });
 
-        // アンカーリンクのスムーズスクロール
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+      // アンカーリンクのスムーズスクロール
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: "smooth",
             });
+          }
         });
+      });
     </script>
-</body>
-
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WWTTMGH67G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-WWTTMGH67G");
+    </script>
+  </body>
 </html>
