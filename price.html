@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        HugoNest - Pricing Plans
+    </title>
+    <meta name="description"
+        content="Affordable pricing plans for HugoNest. Download the app for just $0.99 and access all basic features, with optional AI capabilities available through subscription." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3A86FF",
+                        darkbg: "#121212",
+                        darkcard: "#1E1E1E",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ['"SF Pro Display"', "sans-serif"],
+                    },
+                    animation: {
+                        float: "float 3s ease-in-out infinite",
+                        "pulse-slow": "pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                    },
+                    keyframes: {
+                        float: {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-10px)" },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+        body {
+            font-family: "Inter", sans-serif;
+        }
+
+        .hero-bg {
+            background: radial-gradient(ellipse at bottom,
+                    #1b2735 0%,
+                    #121212 100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .dark .code-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23262626' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .light .code-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e5e7eb' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .popular-plan {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(30%, -30%) rotate(45deg);
+            transform-origin: bottom left;
+            background-color: #3A86FF;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.5rem 3rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-darkbg text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Header/Nav -->
+    <header
+        class="sticky top-0 z-50 bg-white/80 dark:bg-darkbg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-md flex items-center justify-center">
+                        <img src="/static/media/logo.png" alt="Logo" class="w-full h-full object-cover rounded-md" />
+                    </div>
+                    <span class="font-bold text-xl">HugoNest</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#features" class="hover:text-primary transition">Features</a>
+                <a href="index.html#workflow" class="hover:text-primary transition">Workflow</a>
+                <a href="index.html#security" class="hover:text-primary transition">Security</a>
+                <a href="price.html" class="text-primary font-medium transition">Pricing</a>
+                <a href="support.html" class="hover:text-primary transition">Support</a>
+                <a href="https://hugonest.pages.dev/" class="hover:text-primary transition">Blog</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                <button id="mobile-menu-button"
+                    class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="#download"
+                    class="hidden md:block bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">Download</a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden hidden bg-white dark:bg-darkbg border-t border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-6 py-4">
+                <nav class="flex flex-col space-y-4">
+                    <a href="index.html#features" class="hover:text-primary transition py-2">Features</a>
+                    <a href="index.html#workflow" class="hover:text-primary transition py-2">Workflow</a>
+                    <a href="index.html#security" class="hover:text-primary transition py-2">Security</a>
+                    <a href="price.html" class="text-primary font-medium transition py-2">Pricing</a>
+                    <a href="support.html" class="hover:text-primary transition py-2">Support</a>
+                    <a href="https://hugonest.pages.dev/" class="hover:text-primary transition py-2">Blog</a>
+                    <a href="#download"
+                        class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition inline-block w-full text-center">Download</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg relative overflow-hidden text-white py-20">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 font-display">Simple, Transparent Pricing</h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Choose the plan that works best for you, with affordable options to get started and powerful AI
+                    features when you need them.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 -mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Basic Plan -->
+                <div
+                    class="pricing-card bg-white dark:bg-darkcard rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-gray-800">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Basic Plan</h3>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl font-bold">$0.99</span>
+                            <span class="text-gray-500 dark:text-gray-400 ml-2">one-time</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Get started with HugoNest and access all the essential features you need for your Hugo
+                            static site management.
+                        </p>
+                        <a href="#download"
+                            class="block w-full bg-gray-800 dark:bg-gray-700 text-white text-center py-3 rounded-lg font-medium hover:bg-gray-700 dark:hover:bg-gray-600 transition">
+                            Download Now
+                        </a>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800/50 p-8">
+                        <h4 class="font-bold mb-4">Included Features:</h4>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>Cross-platform Markdown editor</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>Complete Git integration</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>Image management & optimization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>Hugo Front Matter support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>File organization tools</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>Offline editing capabilities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-0.5 mr-2"></i>
+                                <span>AI content generation (upgrade required)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-0.5 mr-2"></i>
+                                <span>AI SEO optimization (upgrade required)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- AI Subscription Plan -->
+                <div
+                    class="pricing-card popular-plan bg-white dark:bg-darkcard rounded-2xl shadow-xl overflow-hidden border-2 border-primary">
+                    <div class="popular-badge">BEST VALUE</div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">AI Subscription</h3>
+                        <div class="flex items-end gap-4">
+                            <div>
+                                <div class="flex items-baseline">
+                                    <span class="text-4xl font-bold">$0.99</span>
+                                    <span class="text-gray-500 dark:text-gray-400 ml-2">/month</span>
+                                </div>
+                                <div class="text-sm text-gray-500">Billed monthly</div>
+                            </div>
+                            <div>
+                                <div class="flex items-baseline">
+                                    <span class="text-4xl font-bold">$9.99</span>
+                                    <span class="text-gray-500 dark:text-gray-400 ml-2">/year</span>
+                                </div>
+                                <div class="text-sm text-green-500 font-medium">Save over 15%</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 my-6">
+                            Unlock the full power of HugoNest with AI-driven content creation and optimization tools.
+                        </p>
+                        <a href="#download"
+                            class="block w-full bg-primary text-white text-center py-3 rounded-lg font-medium hover:bg-blue-600 transition">
+                            Subscribe Now
+                        </a>
+                    </div>
+                    <div class="bg-blue-50 dark:bg-blue-900/10 p-8">
+                        <h4 class="font-bold mb-4">Everything in Basic, plus:</h4>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>AI article optimization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>AI content formatting</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>AI SEO keyword recommendations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>Auto Front Matter generation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>Grammar & style suggestions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>Content idea generation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>Readability optimization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span>Priority support</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Everything you need to know about our pricing and subscription
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-6">
+                    <!-- FAQ 1 -->
+                    <div class="bg-white dark:bg-darkcard rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">Do I need to buy the app before subscribing to AI
+                                features?</h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                Yes, the base app purchase ($0.99) is required to use HugoNest. The AI subscription is
+                                an additional feature set that enhances the core functionality.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-white dark:bg-darkcard rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">Can I use HugoNest without the AI subscription?</h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                Absolutely! The basic app purchase gives you access to all the essential features needed
+                                to manage your Hugo site, including the Markdown editor, Git integration, and more.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-white dark:bg-darkcard rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">How is the yearly subscription billed?</h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                The yearly subscription is billed as a single payment of $9.99 , offering over 15%
+                                savings compared to the monthly subscription. It automatically renews after 12 months
+                                unless canceled.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="bg-white dark:bg-darkcard rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">Can I cancel my AI subscription at any time?</h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                Yes, you can cancel your AI subscription at any time. You'll continue to have access to
+                                the AI features until the end of your current billing period. After that, you'll still
+                                have full access to all the basic features of the app.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="bg-white dark:bg-darkcard rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">Is there a free trial for the AI features?</h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                New users can try the AI features with a limited number of requests to experience the
+                                benefits before subscribing. Check the app for current trial offers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="download" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Ready to Transform Your Hugo Workflow?
+            </h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                Get started with HugoNest today for just $0.99 and experience the power of mobile-first Hugo site
+                management.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="https://apps.apple.com/us/app/hugonest/id6744083788?platform=iphone" target="_blank"
+                    class="bg-white text-primary px-8 py-4 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105 inline-flex items-center justify-center">
+                    <i class="fab fa-apple mr-2 text-xl"></i>
+                    <span>Download for iOS</span>
+                </a>
+                <a href="#"
+                    class="bg-gray-900 text-white px-8 py-4 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105 inline-flex items-center justify-center">
+                    <i class="fab fa-google-play mr-2 text-xl"></i>
+                    <span>Download for Android</span>
+                </a>
+            </div>
+
+            <div
+                class="mt-8 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm opacity-80">
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>Secure Git integration</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>Works offline</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-globe mr-2"></i>
+                    <span>Multilingual support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
+                            <i class="fas fa-code text-white"></i>
+                        </div>
+                        <span class="font-bold text-lg">HugoNest</span>
+                    </div>
+                    <p class="mb-4">
+                        The ultimate mobile companion for Hugo static site generators.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="mailto:hugonest@xgdebug.com" class="hover:text-primary transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://x.com/HugoNestApp" class="hover:text-primary transition" target="_blank"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/HugoNest" class="hover:text-primary transition" target="_blank"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">
+                        Product
+                    </h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="index.html#features" class="hover:text-primary transition">Features</a>
+                        </li>
+                        <li>
+                            <a href="price.html" class="text-primary transition">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="changelog.html" class="hover:text-primary transition">Changelog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">
+                        Resources
+                    </h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="https://hugonest.pages.dev/posts/how_to_set_up_a_deploy_key_for_github/"
+                                class="hover:text-primary transition" target="_blank">Tutorials</a>
+                        </li>
+                        <li>
+                            <a href="https://hugonest.pages.dev/" class="hover:text-primary transition"
+                                target="_blank">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">
+                        Company
+                    </h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="hover:text-primary transition">About</a>
+                        </li>
+                        <li>
+                            <a href="privacy.html" class="hover:text-primary transition">Privacy</a>
+                        </li>
+                        <li>
+                            <a href="support.html" class="hover:text-primary transition">Support</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2025 HugoNest. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="privacy.html" class="text-sm hover:text-primary transition">Privacy Policy</a>
+                    <span class="mx-2">•</span>
+                    <a href="terms.html" class="text-sm hover:text-primary transition">Terms of Service</a>
+                    <span class="mx-2">•</span>
+                    <a href="support.html" class="text-sm hover:text-primary transition">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById("theme-toggle");
+        const html = document.documentElement;
+
+        if (
+            localStorage.getItem("theme") === "dark" ||
+            (!localStorage.getItem("theme") &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            html.classList.add("dark");
+        } else {
+            html.classList.remove("dark");
+        }
+
+        themeToggle.addEventListener("click", () => {
+            html.classList.toggle("dark");
+            localStorage.setItem(
+                "theme",
+                html.classList.contains("dark") ? "dark" : "light"
+            );
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll("#mobile-menu a").forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute("href");
+                if (targetId === "#") return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: "smooth",
+                    });
+                }
+            });
+        });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWTTMGH67G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-WWTTMGH67G");
+    </script>
+</body>
+
+</html>
